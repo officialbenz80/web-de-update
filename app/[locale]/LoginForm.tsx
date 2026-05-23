@@ -84,7 +84,7 @@ export default function LoginForm({ serverAction, dict }: LoginFormProps) {
             name="email"
             placeholder={dict.login.email}
             required
-            className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base outline-none transition-colors focus:border-[#005ea8]"
+            className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base text-slate-700 outline-none transition-colors focus:border-[#005ea8]"
           />
         </div>
 
@@ -94,7 +94,7 @@ export default function LoginForm({ serverAction, dict }: LoginFormProps) {
             name="password"
             placeholder={dict.login.password}
             required
-            className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base outline-none transition-colors focus:border-[#005ea8]"
+            className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base text-slate-700 outline-none transition-colors focus:border-[#005ea8]"
           />
         </div>
 
