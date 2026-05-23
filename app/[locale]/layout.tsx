@@ -1,36 +1,22 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./../globals.css";
+// app/[locale]/layout.tsx
+import { ReactNode } from "react";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+interface LayoutProps {
+  children: ReactNode;
+  // Change "de" | "en" to string here to satisfy Next.js core constraints
+  params: Promise<{ locale: string }>;
+}
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+export default async function RootLayout({ children, params }: LayoutProps) {
+  // Await the parameters from Next.js
+  const resolvedParams = await params;
 
-export const metadata: Metadata = {
-  title: "Login",
-  description: "Login to your account",
-};
+  // Cast it securely inside the component if you need strict type checking downstream
+  const locale = resolvedParams.locale as "de" | "en";
 
-export default async function RootLayout({
-  children,
-  params,
-}: Readonly<{
-  children: React.ReactNode;
-  params: Promise<{ locale: "de" | "en" }>;
-}>) {
-  const { locale } = await params;
   return (
-    <html
-      lang={locale}
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang={locale}>
+      <body>{children}</body>
     </html>
   );
 }
