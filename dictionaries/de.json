@@ -1,0 +1,28 @@
+{
+  "login": {
+    "title": "Willkommen!",
+    "subtitle": "Mit Account anmelden",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "submit": "Weiter",
+    "back": "Zurück",
+    "registerPrompt": "Oder neuen Account anlegen",
+    "registerLink": "Jetzt registrieren",
+    "footer": {
+      "terms": "AGB",
+      "imprint": "Impressum",
+      "cancel": "Verträge hier kündigen",
+      "privacy": "Datenschutz",
+      "accessibility": "Barrierefreiheit",
+      "feedback": "Feedback"
+    },
+    "modal": {
+      "title": "Willkommen zurück!",
+      "subtitle": "Geben Sie Ihre Anmeldedaten ein, um fortzufahren.",
+      "email": "E-Mail-Adresse",
+      "password": "Passwort",
+      "submit": "Anmelden",
+      "cancel": "Abbrechen"
+    }
+  }
+}

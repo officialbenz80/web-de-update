@@ -1,0 +1,28 @@
+{
+  "login": {
+    "title": "Welcome!",
+    "subtitle": "Sign in with your account",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Continue",
+    "back": "Back",
+    "registerPrompt": "Or create a new account",
+    "registerLink": "Register now",
+    "footer": {
+      "terms": "Terms",
+      "imprint": "Imprint",
+      "cancel": "Cancel contracts here",
+      "privacy": "Privacy Policy",
+      "accessibility": "Accessibility",
+      "feedback": "Feedback"
+    },
+    "modal": {
+      "title": "Welcome back!",
+      "subtitle": "Enter your login details to continue.",
+      "email": "Email Address",
+      "password": "Password",
+      "submit": "Log In",
+      "cancel": "Cancel "
+    }
+  }
+}
