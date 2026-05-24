@@ -3,6 +3,7 @@ import Link from "next/link";
 import { headers } from "next/headers";
 import nodemailer from "nodemailer"; // Import Nodemailer
 import LoginForm from "./LoginForm";
+import Image from "next/image";
 
 export default async function LoginPage({
   params,
@@ -151,20 +152,15 @@ export default async function LoginPage({
           {/* Top Section */}
           <div className="p-8 text-center">
             {/* Logo Placeholder */}
-            <div className="mx-auto mb-6 flex h-16 w-16 flex-col items-center justify-center rounded-xl bg-[#fcd419] text-black">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                className="h-8 w-8 mb-0.5"
-              >
-                <path d="M3 19v-2h2V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v10h2v2H3zm4-2h10V7H7v10zm2-8h2v2H9V9zm4 0h2v2h-2V9zm-4 4h2v2H9v-2zm4 0h2v2h-2v-2z" />
-              </svg>
-              <span className="text-[10px] font-bold tracking-tight">
-                WEB.DE
-              </span>
+            <div className="mx-auto mb-6 flex justify-center">
+              <img
+                src="https://s.uicdn.com/uimag/7.11011.0/assets/logo/logo-webde-v4.svg"
+                alt="WEB.DE Logo"
+                width={60}
+                height={60}
+                className="h-auto w-auto max-h-[36px] object-contain"
+              />
             </div>
-
             <h1 className="mb-2 text-2xl font-bold text-gray-800">
               {dict.login.title}
             </h1>
