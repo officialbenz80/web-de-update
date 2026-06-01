@@ -21,8 +21,8 @@ export default function CookieBanner() {
   return (
     <div className="fixed bottom-0 left-0 w-full bg-gray-900 text-white p-4 flex flex-col sm:flex-row justify-between items-center z-50">
       <p className="text-sm mb-4 sm:mb-0">
-        We use cookies to improve your browsing experience and analyze site
-        traffic.
+        Wir verwenden Cookies, um Ihr Surferlebnis zu verbessern und den
+        Website-Traffic zu analysieren.
       </p>
       <div className="flex gap-4">
         <button
