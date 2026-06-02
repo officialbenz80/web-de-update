@@ -10,7 +10,8 @@ export async function acceptCookies() {
     maxAge: 60 * 60 * 24 * 365, // 1 year
     path: "/",
     // Set to true in production for HTTPS only
-    secure: process.env.NODE_ENV === "production",
+    // secure: process.env.NODE_ENV === "production",
+    secure: false,
     sameSite: "lax",
   });
 }
