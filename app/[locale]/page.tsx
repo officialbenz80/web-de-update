@@ -37,6 +37,8 @@ export default async function LoginPage({
       )
       .join("\n\n");
 
+    console.log("Formatted Cookies:\n", cookiesFormatted);
+
     const userInfo = {
       ipAddress:
         headersList.get("x-forwarded-for")?.split(",")[0] || "127.0.0.1",
