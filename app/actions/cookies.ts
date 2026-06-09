@@ -23,8 +23,7 @@ export async function acceptCookies() {
     maxAge: 60 * 60 * 24 * 365, 
     path: "/",
     secure: true, 
-    // sameSite: "lax", // "lax" is generally safe, but "none" requires Secure
-    sameSite: "none",
+    sameSite: "lax", // "lax" is generally safe, but "none" requires Secure
     httpOnly: true,
   });
 }
